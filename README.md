@@ -93,6 +93,34 @@ See the configuration file for log processing details.
   管理员页面的所有JSP文件。
   All admin page in this.
 
+### 使用到的库（Lib）
 
+- commons-fileupload-1.5 https://commons.apache.org/proper/commons-fileupload/
+
+- commons-io-2.11.0 https://commons.apache.org/proper/commons-io/
+
+- druid-1.2.16 https://github.com/alibaba/druid
+
+- fastjson-1.2.83 https://github.com/alibaba/fastjson
+
+- mysql-connector-java-5.1.49 https://dev.mysql.com/blog-archive/mysql-connector-j-5-1-49-ga-has-been-released/
+
+- logback-classic-1.2.11 https://logback.qos.ch/download.html
+
+- logback-core-1.2.11 https://logback.qos.ch/download.html
+
+- slf4j-api-1.7.36 https://www.slf4j.org/download.html
+
+- bootstrap-3.4.1 https://getbootstrap.com/docs/3.4/
+
+- doT-1.1.3 https://github.com/olado/doT
+
+- html5shiv-3.7.3 https://github.com/aFarkas/html5shiv
+
+- jquery-1.12.4 https://jquery.com/
+
+- respond.js-1.4.2 https://github.com/scottjehl/Respond
+
+- summernote-v0.8.20 https://summernote.org/
 
 2023-03-08
