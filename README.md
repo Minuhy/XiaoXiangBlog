@@ -11,19 +11,19 @@
 A simple java web project, use JSP, Servlet, MySql, Bootstarp and others. Realized the function of publish blog, read blog, show like, publish comment, person profile change,adaptive desktop mobile and others.If you like this, please click the star, thanks.
 
 ## 图片（Show）
-![首页](image\README\image-20230308112559074.png)
+![首页](image/README/image-20230308112559074.png)
 
 ---
 
-![阅读页面](image\README\image-20230308112335629.png)
+![阅读页面](image/README/image-20230308112335629.png)
 
 ---
 
-![个人主页](image\README\image-20230308112359260.png)
+![个人主页](image/README/image-20230308112359260.png)
 
 ---
 
-![个人消息页面](image\README\image-20230308112506040.png)
+![个人消息页面](image/README/image-20230308112506040.png)
 
 
 
