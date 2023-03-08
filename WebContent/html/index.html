@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+		<!-- Bootstrap -->
+	    <link rel="stylesheet" href="lib/bootstrap-3.4.1/css/bootstrap.css">
+
+	    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+	    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+	    <!--[if lt IE 9]>
+	      <script src="lib/html5shiv-3.7.3/html5shiv.min.js"></script>
+	      <script src="lib/respond.js-1.4.2/respond.min.js"></script>
+	    <![endif]-->
+        
+        <link rel="stylesheet" href="lib/xiaoxiang/css/backtop.css">
+
+		<title>潇湘博客 - 首页</title>
+	</head>
+	<body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- 品牌和开关组合在一起，以实现更好的在移动端显示 -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">潇湘网络日记</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">潇湘博客</a>
+                </div>
+          
+                <!-- 导航链接、表单和其他内容以进行切换 -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">首页</a></li>
+                    <li><a href="blog.html">博客</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="请输入关键词">
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="post.html">发博客</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">我的主页</a></li>
+                                <li><a href="#">我的资料</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">退出登录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        
+        <!-- 内容 -->
+        <div class="container">
+            <!-- 标牌 -->
+            <div class="jumbotron">
+                <h1>潇湘网络日记</h1>
+                <p>博客，仅音译，英文名为Blogger，为Web Log的混成词。它的正式名称为网络日记；又音译为部落格或部落阁等，是使用特定的软件，在网络上出版、发表和张贴个人文章的人，或者是一种通常由个人管理、不定期张贴新的文章的网站。博客上的文章通常以网页形式出现，并根据张贴时间，以倒序排列。</p>
+                <p class="text-right lead"><em>欢迎你：AAA</em></p>
+            </div>
+
+            <h2>博文随机推荐</h2>
+            <hr>
+            <div>
+                
+                <p class="lead" style="color: orange;text-align: center;margin: 100px auto;font-size: 26px;">
+                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    <br>
+                    没有博文可以推荐
+                </p>
+                
+                <p class="lead" style="color: red;text-align: center;margin: 100px auto;font-size: 26px;">
+                    <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                    <br>
+                    数据库错误
+                </p>
+            </div>
+        </div>
+
+        <div onclick="window.scrollTo(0,0);return false;" style="display:none; background: url(img/backToTop.png) no-repeat scroll 0 0 transparent;" class="back-to" id="toolBackTop">
+            <a title="返回顶部" onclick="window.scrollTo(0,0);return false;" href="#top" class="back-top">回到顶部</a>
+        </div>
+    
+        <footer>
+            <hr>
+            <p class="lead text-center">本站由 <a href="https://space.bilibili.com/32778000">敏Ymm</a> 使用
+                <a href="https://www.runoob.com/jsp/jsp-tutorial.html">JSP</a>
+                <span class="glyphicon glyphicon-plus" style="font-size: 16px;" aria-hidden="true"></span>
+                <a href="https://v3.bootcss.com/">Bootstrap</a>
+                技术实现
+            </p>
+            <p class="text-center" style="padding-bottom: 70px;">
+                <a href="#top">
+                    &copy; 2023
+                </a>
+            </p>
+          </footer>
+
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+        <script src="lib/jquery-1.12.4/jquery.js"></script>
+        <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+        <script src="lib/bootstrap-3.4.1/js/bootstrap.js"></script>
+        <script src="lib/xiaoxiang/js/backtop.js"></script>
+	</body>
+</html>

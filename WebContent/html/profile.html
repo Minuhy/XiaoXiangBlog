@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>潇湘博客 - 首页</title>
+		<!-- Bootstrap -->
+	    <link rel="stylesheet" href="lib/bootstrap-3.4.1/css/bootstrap.css">
+	
+	    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+	    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+	    <!--[if lt IE 9]>
+	      <script src="lib/html5shiv-3.7.3/html5shiv.min.js"></script>
+	      <script src="lib/respond.js-1.4.2/respond.min.js"></script>
+	    <![endif]-->
+        <link rel="stylesheet" href="lib/xiaoxiang/css/backtop.css">
+        <style>
+            .on{
+                background-color:darkgrey;
+            }
+        </style>
+	</head>
+	<body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- 品牌和开关组合在一起，以实现更好的在移动端显示 -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">潇湘网络日记</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">潇湘博客</a>
+                </div>
+          
+                <!-- 导航链接、表单和其他内容以进行切换 -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="blog.html">博客</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="请输入关键词">
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">发博客</a></li>
+                        <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">我的主页</a></li>
+                                <li><a href="#">编辑资料</a></li>
+                                <li><a href="password.html">修改密码</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">退出登录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        
+        <!-- 内容 -->
+        <div class="container">
+            <h1>修改资料</h1>
+            <hr>
+            <div class="row text-center">
+                <div>
+                    <img src="img/avatar/h001.png" alt="头像" width="100" height="100" class="img-thumbnail" />
+                </div>
+                <br/>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#avatarModal">修改头像</button>
+            </div>
+            <!-- 资料 -->
+            
+            <hr>
+            <form>
+                <div class="input-group input-group">
+                    <span class="input-group-addon" id="profile1">昵称</span>
+                    <input type="text" placeholder="请输入你的昵称" value="我的昵称" class="form-control" aria-describedby="profile1">
+                </div>
+                <br>
+                <div class="input-group input-group">
+                    <span class="input-group-addon" id="profile2">签名</span>
+                    <input type="text" placeholder="请输入你的签名" class="form-control" aria-describedby="profile2">
+                </div>
+                <br>
+                <div class="input-group input-group">
+                    <span class="input-group-addon" id="profile3">性别</span>
+                    <select class="form-control">
+                        <option>保密</option>
+                        <option>男</option>
+                        <option>女</option>
+                    </select>
+                </div>
+                <br>
+                <div class="input-group input-group">
+                    <span class="input-group-addon" id="profile4">家乡</span>
+                    <input type="text" placeholder="请输入你的家乡" class="form-control" aria-describedby="profile4">
+                </div>
+                <br>
+                <div class="input-group input-group">
+                    <span class="input-group-addon" id="profile4">联系方式</span>
+                    <input type="text" placeholder="请输入你公开的联系方式" class="form-control" aria-describedby="profile4">
+                </div>
+                <br>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-primary">保存资料</button>
+                </div>
+
+            </form>
+
+            
+        </div>
+
+        <!-- 修改头像模态框 -->
+        <div class="modal fade" id="avatarModal" tabindex="-1" role="dialog" aria-labelledby="avatarModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="avatarModalLabel">请选择你的头像</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered">
+                            <tbody>
+                                
+                                <tr>
+                                    <td id="h001"><img src="img/avatar/h001.png" alt="头像001"></td>
+                                    <td id="h002"><img src="img/avatar/h002.png" alt="头像002"></td>
+                                    <td id="h003"><img src="img/avatar/h003.png" alt="头像003"></td>
+                                    <td id="h004"><img src="img/avatar/h004.png" alt="头像004"></td>
+                                    <td id="h005"><img src="img/avatar/h005.png" alt="头像005"></td>
+                                    <td id="h006"><img src="img/avatar/h006.png" alt="头像006"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h007"><img src="img/avatar/h007.png" alt="头像007"></td>
+                                    <td id="h008"><img src="img/avatar/h008.png" alt="头像008"></td>
+                                    <td id="h009"><img src="img/avatar/h009.png" alt="头像009"></td>
+                                    <td id="h010"><img src="img/avatar/h010.png" alt="头像010"></td>
+                                    <td id="h011"><img src="img/avatar/h011.png" alt="头像011"></td>
+                                    <td id="h012"><img src="img/avatar/h012.png" alt="头像012"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h013"><img src="img/avatar/h013.png" alt="头像013"></td>
+                                    <td id="h014"><img src="img/avatar/h014.png" alt="头像014"></td>
+                                    <td id="h015"><img src="img/avatar/h015.png" alt="头像015"></td>
+                                    <td id="h016"><img src="img/avatar/h016.png" alt="头像016"></td>
+                                    <td id="h017"><img src="img/avatar/h017.png" alt="头像017"></td>
+                                    <td id="h018"><img src="img/avatar/h018.png" alt="头像018"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h019"><img src="img/avatar/h019.png" alt="头像019"></td>
+                                    <td id="h020"><img src="img/avatar/h020.png" alt="头像020"></td>
+                                    <td id="h021"><img src="img/avatar/h021.png" alt="头像021"></td>
+                                    <td id="h022"><img src="img/avatar/h022.png" alt="头像022"></td>
+                                    <td id="h023"><img src="img/avatar/h023.png" alt="头像023"></td>
+                                    <td id="h024"><img src="img/avatar/h024.png" alt="头像024"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h025"><img src="img/avatar/h025.png" alt="头像025"></td>
+                                    <td id="h026"><img src="img/avatar/h026.png" alt="头像026"></td>
+                                    <td id="h027"><img src="img/avatar/h027.png" alt="头像027"></td>
+                                    <td id="h028"><img src="img/avatar/h028.png" alt="头像028"></td>
+                                    <td id="h029"><img src="img/avatar/h029.png" alt="头像029"></td>
+                                    <td id="h030"><img src="img/avatar/h030.png" alt="头像030"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h031"><img src="img/avatar/h031.png" alt="头像031"></td>
+                                    <td id="h032"><img src="img/avatar/h032.png" alt="头像032"></td>
+                                    <td id="h033"><img src="img/avatar/h033.png" alt="头像033"></td>
+                                    <td id="h034"><img src="img/avatar/h034.png" alt="头像034"></td>
+                                    <td id="h035"><img src="img/avatar/h035.png" alt="头像035"></td>
+                                    <td id="h036"><img src="img/avatar/h036.png" alt="头像036"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h037"><img src="img/avatar/h037.png" alt="头像037"></td>
+                                    <td id="h038"><img src="img/avatar/h038.png" alt="头像038"></td>
+                                    <td id="h039"><img src="img/avatar/h039.png" alt="头像039"></td>
+                                    <td id="h040"><img src="img/avatar/h040.png" alt="头像040"></td>
+                                    <td id="h041"><img src="img/avatar/h041.png" alt="头像041"></td>
+                                    <td id="h042"><img src="img/avatar/h042.png" alt="头像042"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h043"><img src="img/avatar/h043.png" alt="头像043"></td>
+                                    <td id="h044"><img src="img/avatar/h044.png" alt="头像044"></td>
+                                    <td id="h045"><img src="img/avatar/h045.png" alt="头像045"></td>
+                                    <td id="h046"><img src="img/avatar/h046.png" alt="头像046"></td>
+                                    <td id="h047"><img src="img/avatar/h047.png" alt="头像047"></td>
+                                    <td id="h048"><img src="img/avatar/h048.png" alt="头像048"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h049"><img src="img/avatar/h049.png" alt="头像049"></td>
+                                    <td id="h050"><img src="img/avatar/h050.png" alt="头像050"></td>
+                                    <td id="h051"><img src="img/avatar/h051.png" alt="头像051"></td>
+                                    <td id="h052"><img src="img/avatar/h052.png" alt="头像052"></td>
+                                    <td id="h053"><img src="img/avatar/h053.png" alt="头像053"></td>
+                                    <td id="h054"><img src="img/avatar/h054.png" alt="头像054"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h055"><img src="img/avatar/h055.png" alt="头像055"></td>
+                                    <td id="h056"><img src="img/avatar/h056.png" alt="头像056"></td>
+                                    <td id="h057"><img src="img/avatar/h057.png" alt="头像057"></td>
+                                    <td id="h058"><img src="img/avatar/h058.png" alt="头像058"></td>
+                                    <td id="h059"><img src="img/avatar/h059.png" alt="头像059"></td>
+                                    <td id="h060"><img src="img/avatar/h060.png" alt="头像060"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h061"><img src="img/avatar/h061.png" alt="头像061"></td>
+                                    <td id="h062"><img src="img/avatar/h062.png" alt="头像062"></td>
+                                    <td id="h063"><img src="img/avatar/h063.png" alt="头像063"></td>
+                                    <td id="h064"><img src="img/avatar/h064.png" alt="头像064"></td>
+                                    <td id="h065"><img src="img/avatar/h065.png" alt="头像065"></td>
+                                    <td id="h066"><img src="img/avatar/h066.png" alt="头像066"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h067"><img src="img/avatar/h067.png" alt="头像067"></td>
+                                    <td id="h068"><img src="img/avatar/h068.png" alt="头像068"></td>
+                                    <td id="h069"><img src="img/avatar/h069.png" alt="头像069"></td>
+                                    <td id="h070"><img src="img/avatar/h070.png" alt="头像070"></td>
+                                    <td id="h071"><img src="img/avatar/h071.png" alt="头像071"></td>
+                                    <td id="h072"><img src="img/avatar/h072.png" alt="头像072"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h073"><img src="img/avatar/h073.png" alt="头像073"></td>
+                                    <td id="h074"><img src="img/avatar/h074.png" alt="头像074"></td>
+                                    <td id="h075"><img src="img/avatar/h075.png" alt="头像075"></td>
+                                    <td id="h076"><img src="img/avatar/h076.png" alt="头像076"></td>
+                                    <td id="h077"><img src="img/avatar/h077.png" alt="头像077"></td>
+                                    <td id="h078"><img src="img/avatar/h078.png" alt="头像078"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h079"><img src="img/avatar/h079.png" alt="头像079"></td>
+                                    <td id="h080"><img src="img/avatar/h080.png" alt="头像080"></td>
+                                    <td id="h081"><img src="img/avatar/h081.png" alt="头像081"></td>
+                                    <td id="h082"><img src="img/avatar/h082.png" alt="头像082"></td>
+                                    <td id="h083"><img src="img/avatar/h083.png" alt="头像083"></td>
+                                    <td id="h084"><img src="img/avatar/h084.png" alt="头像084"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h085"><img src="img/avatar/h085.png" alt="头像085"></td>
+                                    <td id="h086"><img src="img/avatar/h086.png" alt="头像086"></td>
+                                    <td id="h087"><img src="img/avatar/h087.png" alt="头像087"></td>
+                                    <td id="h088"><img src="img/avatar/h088.png" alt="头像088"></td>
+                                    <td id="h089"><img src="img/avatar/h089.png" alt="头像089"></td>
+                                    <td id="h090"><img src="img/avatar/h090.png" alt="头像090"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h091"><img src="img/avatar/h091.png" alt="头像091"></td>
+                                    <td id="h092"><img src="img/avatar/h092.png" alt="头像092"></td>
+                                    <td id="h093"><img src="img/avatar/h093.png" alt="头像093"></td>
+                                    <td id="h094"><img src="img/avatar/h094.png" alt="头像094"></td>
+                                    <td id="h095"><img src="img/avatar/h095.png" alt="头像095"></td>
+                                    <td id="h096"><img src="img/avatar/h096.png" alt="头像096"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h097"><img src="img/avatar/h097.png" alt="头像097"></td>
+                                    <td id="h098"><img src="img/avatar/h098.png" alt="头像098"></td>
+                                    <td id="h099"><img src="img/avatar/h099.png" alt="头像099"></td>
+                                    <td id="h100"><img src="img/avatar/h100.png" alt="头像100"></td>
+                                    <td id="h101"><img src="img/avatar/h101.png" alt="头像101"></td>
+                                    <td id="h102"><img src="img/avatar/h102.png" alt="头像102"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h103"><img src="img/avatar/h103.png" alt="头像103"></td>
+                                    <td id="h104"><img src="img/avatar/h104.png" alt="头像104"></td>
+                                    <td id="h105"><img src="img/avatar/h105.png" alt="头像105"></td>
+                                    <td id="h106"><img src="img/avatar/h106.png" alt="头像106"></td>
+                                    <td id="h107"><img src="img/avatar/h107.png" alt="头像107"></td>
+                                    <td id="h108"><img src="img/avatar/h108.png" alt="头像108"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h109"><img src="img/avatar/h109.png" alt="头像109"></td>
+                                    <td id="h110"><img src="img/avatar/h110.png" alt="头像110"></td>
+                                    <td id="h111"><img src="img/avatar/h111.png" alt="头像111"></td>
+                                    <td id="h112"><img src="img/avatar/h112.png" alt="头像112"></td>
+                                    <td id="h113"><img src="img/avatar/h113.png" alt="头像113"></td>
+                                    <td id="h114"><img src="img/avatar/h114.png" alt="头像114"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h115"><img src="img/avatar/h115.png" alt="头像115"></td>
+                                    <td id="h116"><img src="img/avatar/h116.png" alt="头像116"></td>
+                                    <td id="h117"><img src="img/avatar/h117.png" alt="头像117"></td>
+                                    <td id="h118"><img src="img/avatar/h118.png" alt="头像118"></td>
+                                    <td id="h119"><img src="img/avatar/h119.png" alt="头像119"></td>
+                                    <td id="h120"><img src="img/avatar/h120.png" alt="头像120"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h121"><img src="img/avatar/h121.png" alt="头像121"></td>
+                                    <td id="h122"><img src="img/avatar/h122.png" alt="头像122"></td>
+                                    <td id="h123"><img src="img/avatar/h123.png" alt="头像123"></td>
+                                    <td id="h124"><img src="img/avatar/h124.png" alt="头像124"></td>
+                                    <td id="h125"><img src="img/avatar/h125.png" alt="头像125"></td>
+                                    <td id="h126"><img src="img/avatar/h126.png" alt="头像126"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h127"><img src="img/avatar/h127.png" alt="头像127"></td>
+                                    <td id="h128"><img src="img/avatar/h128.png" alt="头像128"></td>
+                                    <td id="h129"><img src="img/avatar/h129.png" alt="头像129"></td>
+                                    <td id="h130"><img src="img/avatar/h130.png" alt="头像130"></td>
+                                    <td id="h131"><img src="img/avatar/h131.png" alt="头像131"></td>
+                                    <td id="h132"><img src="img/avatar/h132.png" alt="头像132"></td>
+                                    </tr>
+                                            <tr>
+                                    <td id="h133"><img src="img/avatar/h133.png" alt="头像133"></td>
+                                    <td id="h134"><img src="img/avatar/h134.png" alt="头像134"></td>
+                                    <td id="h135"><img src="img/avatar/h135.png" alt="头像135"></td>
+                                    <td id="h136"><img src="img/avatar/h136.png" alt="头像136"></td>
+                                    <td id="h137"><img src="img/avatar/h137.png" alt="头像137"></td>
+                                    <td id="h138"><img src="img/avatar/h138.png" alt="头像138"></td>
+                                    </tr>
+                                    
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div onclick="window.scrollTo(0,0);return false;" style="display:none; background: url(img/backToTop.png) no-repeat scroll 0 0 transparent;" class="back-to" id="toolBackTop">
+            <a title="返回顶部" onclick="window.scrollTo(0,0);return false;" href="#top" class="back-top">回到顶部</a>
+        </div>
+    
+        <footer>
+            <hr>
+            <p class="lead text-center">本站由 <a href="https://space.bilibili.com/32778000">敏Ymm</a> 使用
+                <a href="https://www.runoob.com/jsp/jsp-tutorial.html">JSP</a>
+                <span class="glyphicon glyphicon-plus" style="font-size: 16px;" aria-hidden="true"></span>
+                <a href="https://v3.bootcss.com/">Bootstrap</a>
+                技术实现
+            </p>
+            <p class="text-center" style="padding-bottom: 70px;">
+                <a href="#top">
+                    &copy; 2023
+                </a>
+            </p>
+          </footer>
+
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+        <script src="lib/jquery-1.12.4/jquery.js"></script>
+        <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+        <script src="lib/bootstrap-3.4.1/js/bootstrap.js"></script>
+        <script src="lib/xiaoxiang/js/backtop.js"></script>
+        <script>
+            var chooseAvatar = '';
+
+            $("#avatarModal td").click(function(){ //给每个tr 绑定点击事件  主要锁定每个tr
+                var trs = $(this).parent().parent().find('td'); //获取所有tr 
+                if(trs.hasClass('on')){ //判断这些tr 有没有Class ‘on'’
+                    trs.removeClass('on');//把class on 移除 
+                }             
+                $(this).addClass('on');//点击的tr 添加 on class 用于改变样式
+                window.chooseAvatar = $(this).attr('id');
+                console.log('选择的头像：' + window.chooseAvatar);
+            });
+        </script>
+	</body>
+</html>

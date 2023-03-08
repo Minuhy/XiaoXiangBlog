@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>潇湘博客 - 首页</title>
+		<!-- Bootstrap -->
+	    <link rel="stylesheet" href="lib/bootstrap-3.4.1/css/bootstrap.css">
+	
+	    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+	    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+	    <!--[if lt IE 9]>
+	      <script src="lib/html5shiv-3.7.3/html5shiv.min.js"></script>
+	      <script src="lib/respond.js-1.4.2/respond.min.js"></script>
+	    <![endif]-->
+        <link rel="stylesheet" href="lib/xiaoxiang/css/backtop.css">
+	</head>
+	<body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- 品牌和开关组合在一起，以实现更好的在移动端显示 -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">潇湘网络日记</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">潇湘博客</a>
+                </div>
+          
+                <!-- 导航链接、表单和其他内容以进行切换 -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="blog.html">博客</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="请输入关键词">
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">发博客</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="my.html">我的主页</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">退出登录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        
+        <!-- 内容 -->
+        <div class="container">
+
+            <!-- 博客列表 -->
+            <h1 id="h111">博客标题</h1>
+            <p style="margin:0 0 -10px 8px;height: 32px;">
+                <span style="line-height: 32px;">2023-2-2 14:22</span>
+                <span class="btn btn-default" style="float: right;">操作</span>
+            </p>
+            <hr>
+            <!-- 正文 -->
+            <div>
+                VirtualBox 安装 Win98 写网页 记录一下，我成功在VirtualBox中安装了Win98系统，并且安装了Dreamweaver 3.0写网页。 零、起因 学校机房的极域电子教室软件不太好用，比如不能给学生单独注册账号，而是给电脑注册的账号，那下次学生不一定还坐上一个位置，这样做了一半的作业就不太好管理。都发给我那我下次上课还得一个一个发？存网盘和学习通是个不错的方案，但是这样他们相互复制粘贴的概率大些，而且下课后谁还写作业(>_)，而且学校机房也不是一直有网，故想做一个基于局域网能放在U盘里带走的学生作业管理系统。那要做自然要考虑到学生的电脑能不能用，也就是浏览器兼容问题。本人比较有强迫症，要兼容就兼容所有的，于是就搞了个上古系统 - Win98系统来做测试。这个系统发布的时候我都还没出生呢...... 壹、在虚拟机上安装 Win98 安装的资源和参考文档 这里没什么好说的，选择Win98系统，按照提示来就好了，英文看不懂可以翻译一下，记得有个选择支持大文件系统的，最好选上。 这里有个重点：安装到快要结束的时候会报错，关于资源管理器的explorer执行了非法操作这个就先关机，然后在设置里把虚拟机存储硬盘的控制器改为SATA就好了（默认是IDE）参考文档 VirtualBox 经过以上步骤之后就能正常到系统中了，声音、网络都有。（网络得设置一下，选择局域网，然后不添加电子邮件） 贰、在Win98中安装 Dreamweaver 3.0 好接下来就是安装DW3，这个DW3是2000年的软件了，10兆多点，去哪里下呢？ 链接：Dreamweaver3.0 这个下载速度很慢，耐心等待一下 下载好之后如何传入Win98电脑中？ 我们是做网页设计的嘛？我们不是有Web服务器嘛？所以可以把这个文件上传到自己服务器，然后再用Win98去访问去下载。（我用的是局域网服务器，虚拟机要连接局域网服务器需要再添加一张网卡或更改现在的网卡设置，在虚拟机网络设置中，把连接方式改为“仅主机”就可以访问了，要注意一下IP，我们自己电脑中会有虚拟机的网卡的，用的IP是那个虚拟机网卡的IP） 然后安装DW3 安装的时候一切正常，就是运行的时候，提示不支持16位的色彩。一看设置，发现Win98只能2色和16色。 叁、安装显卡驱动 上网查发现是没装显卡驱动，找了好久，有个镜像文件好多文章都提到了，但是没地方下载。后面是在贴吧的一个贴里找到的资源，一个显卡驱动就23千字节，真小。 帖子链接，位置7楼，访问密码藏在链接里的 下载好后是两个文件，我们要显卡驱动.zip就好了 把文件通过Web服务器的方式传入到Win98系统里后发现要解压缩，这没压缩软件啊！！！ 想到了强大的7z 7z官网下载页面 这里选Download 7-Zip 9.20 (2010-11-18) for Windows（下载页面最下面）这个的32-bit x86 exe版本就好了，同样用Web服务器的形式把文件传入 7z安装一切正常，安装完之后就可以在压缩文件上右键了，然后7z，解压 解压完之后就是安装，安装看了下一个UP主的视频，但是我的是VB他的不知道是啥虚拟机，所以里面的设备也不一样。 我看的视频 自己简单摸索了下，VirtualBox 6.1 步骤如下： 我的电脑，右键，属性 切换到设备管理器选项卡 往下找到显示适配器，点左边的+展开列表 一般来讲，这个列表里就一个设备，然后选中 点下面的属性，然后切换到驱动程序选项卡 升级驱动程序 在向导的第三步只勾选指定位置 然后这个位置是 你解压的那个文件夹 / VBE9X / UNI 后面不出意外的话就是一直保持默认，然后下一步，最后要求你重启一下 重启一下之后再看桌面，右键，属性，设置中就有256色了，还可以调分辨率了（没装之前是不可以的） 修改了颜色后，应该要重启一下吧，然后就可以直接打开DW3了（打开DW3的时候有个英文界面，你点try就可以了） 肆、总结 这里面比较重要的： 三个资源：Win98 ISO镜像、显卡驱动和DW3安装包。这些资源散落在各大参考文档里，我就不收集过来了，你过去下载的时候记得给他们点个赞。 还有文件传输的方式：通过本地Web服务器的形式，可能有的同学不知道，你可以查一下一个 VS Code 的插件 Live Server 非常好用，要虚拟机与本机相连就把网卡设置成仅主机模式就好了 浅看了一下，Win98 一个比我还老的系统，和现在的Windows很像了，DW3甚至没有任何提示（好像当年我学C语言的VC6也没得，哈哈），向当年的开发者致敬
+            </div>
+            <hr>
+            <div style="margin: 20px 60px;">
+                <div class="hidden-xs row">
+                    <div class="col-sm-6 text-left">
+                        <div  style="display: block;float: left;">
+                            <a href="#">
+                                <img src="img/avatar/h001.png" alt="头像" width="80" height="80" class="img-thumbnail" />
+                            </a>
+                        </div>
+                        <div style="margin-left: 90px;margin-top: 20px;">
+                            <h4>计应同学</h4>
+                            <p>这是我的签名</p>
+                        </div>
+                    </div>
+                    
+                    <div  class="col-sm-6 text-right">
+                        <div class="text-center" style="display: inline-block;height: 80px;">
+                            <p style="margin-bottom: 18px;">阅读(1) 支持(1) 评论(1)</p>
+                            <button id="buttonS1" type="button" class="btn btn-default">
+                                <img id="imgS1" src="img/svg/hand-thumbs-up.svg" alt="喜欢">
+                                &nbsp;
+                                <span id="textS1" style="line-height: 16px;">支持</span>
+                            </button>
+                            &nbsp;&nbsp;
+                            <button id="buttonU1" type="button" class="btn btn-default">
+                                <img id="imgU1" src="img/svg/hand-thumbs-down.svg" alt="不喜欢">
+                                &nbsp;
+                                <span id="textU1" style="line-height: 16px;">反对</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="hidden-sm hidden-md hidden-lg">
+                    <div class="row text-center">
+                        <a href="#">
+                            <img src="img/avatar/h001.png" alt="头像" class="img-thumbnail" />
+                        </a>
+                        <h4 style="margin: 5px;">
+                        	<a href="#">计应同学</a>
+                        </h4>
+                        这是我的签名
+                    </div>
+                    
+                    <p class="text-center">阅读(1) 支持(1) 评论(1)</p>
+
+                    <div  class="row text-center">
+                        <button id="buttonS2" type="button" class="btn btn-default">
+                            <img id="imgS2" src="img/svg/hand-thumbs-up-fill.svg" alt="喜欢">
+                            &nbsp;
+                            <span id="textS2" style="line-height: 16px;">支持</span>
+                        </button>
+                        &nbsp;&nbsp;
+                        <button id="buttonU2" type="button" class="btn btn-default">
+                            <img id="imgU2" src="img/svg/hand-thumbs-down.svg" alt="不喜欢">
+                            &nbsp;
+                            <span id="textU2" style="line-height: 16px;">反对</span>
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+            <hr>
+            <!-- 评论发表 -->
+            <div class="text-right">
+                <textarea class="form-control" rows="3" placeholder="请输入评论"></textarea>
+                <br>
+                <button id="p666" type="button" class="btn btn-primary">回复</button>
+            </div>
+            <h4>博文评论</h4>
+            <hr>
+            <!-- 评论 -->
+            <div>
+                <ul class="media-list">
+                    <li class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object img-thumbnail" alt="头像" src="img/avatar/h002.png" data-holder-rendered="true" style="width: 40px; height: 40px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                            	<a href="#">评论者的昵称</a>
+                            </h4>
+                            <p>评论内容评论内容评论内容</p>
+                            <p class="text-muted">2023-6-4 14:56</p>
+                        </div>
+                        <div class="media-right">
+                            <button type="button" style="margin-bottom: 5px;" class="btn btn-default">回复</button>
+                            <button type="button" class="btn btn-default">删除</button>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object img-thumbnail" alt="头像" src="img/avatar/h002.png" data-holder-rendered="true" style="width: 40px; height: 40px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                            	<a href="#">评论者的昵称</a>
+                            </h4>
+                            <p><a href="#">@评论者的昵称</a>：评论评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容内容评论内容评论内容</p>
+                            <p class="text-muted">2023-6-4 14:56</p>
+                        </div>
+                        <div class="media-right">
+                            <button type="button" style="margin-bottom: 5px;" class="btn btn-default">回复</button>
+                            <button type="button" class="btn btn-default">删除</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div onclick="window.scrollTo(0,0);return false;" style="display:none; background: url(img/backToTop.png) no-repeat scroll 0 0 transparent;" class="back-to" id="toolBackTop">
+            <a title="返回顶部" onclick="window.scrollTo(0,0);return false;" href="#top" class="back-top">回到顶部</a>
+        </div>
+    
+        <footer>
+            <hr>
+            <p class="lead text-center">本站由 <a href="https://space.bilibili.com/32778000">敏Ymm</a> 使用
+                <a href="https://www.runoob.com/jsp/jsp-tutorial.html">JSP</a>
+                <span class="glyphicon glyphicon-plus" style="font-size: 16px;" aria-hidden="true"></span>
+                <a href="https://v3.bootcss.com/">Bootstrap</a>
+                技术实现
+            </p>
+            <p class="text-center" style="padding-bottom: 70px;">
+                <a href="#top">
+                    &copy; 2023
+                </a>
+            </p>
+          </footer>
+
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+        <script src="lib/jquery-1.12.4/jquery.js"></script>
+        <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+        <script src="lib/bootstrap-3.4.1/js/bootstrap.js"></script>
+        <script src="lib/xiaoxiang/js/backtop.js"></script>
+        <script>
+            $(function(){
+				// 设置读者状态
+                showState(0);
+			});
+
+            // 根据结果修改样式
+            function showState(sta){
+                let imgS1 = $("#imgS1"); // 支持
+                let imgS2 = $("#imgS2"); // 支持
+                let buttonS1 = $("#buttonS1"); // 支持
+                let buttonS2 = $("#buttonS2"); // 支持
+                let textS1 = $("#textS1"); // 支持
+                let textS2 = $("#textS2"); // 支持
+
+                let imgU1 = $("#imgU1"); // 不支持
+                let imgU2 = $("#imgU2"); // 不支持
+                let buttonU1 = $("#buttonU1"); // 不支持
+                let buttonU2 = $("#buttonU2"); // 不支持
+                let textU1 = $("#textU1"); // 不支持
+                let textU2 = $("#textU2"); // 不支持
+
+                let defStaImgSupport = "img/svg/hand-thumbs-up.svg"; // 默认的支持的图片
+                let defStaImgUnsupport = "img/svg/hand-thumbs-down.svg"; // 默认的反对的图片
+                let defStaClassSupport = "btn-default"; // 默认的支持的类
+                let defStaClassUnsupport = "btn-default"; // 默认的反对的类
+                let defStaTextSupport = "支持"; // 默认的支持的文本
+                let defStaTextUnsupport = "反对"; // 默认的反对的文本
+
+                let actStaImgSupport = "img/svg/hand-thumbs-up-fill.svg"; // 激活的支持的图片
+                let actStaImgUnsupport = "img/svg/hand-thumbs-down-fill.svg"; // 激活的反对的图片
+                let actStaClassSupport = "btn-info"; // 激活的支持的类
+                let actStaClassUnsupport = "btn-warning"; // 激活的反对的类
+                let actStaTextSupport = "已支持"; // 激活的支持的文本
+                let actStaTextUnsupport = "已反对"; // 激活的反对的文本
+
+                // 恢复成默认
+                imgS1.attr('src',defStaImgSupport);
+                imgS2.attr('src',defStaImgSupport);
+                imgU1.attr('src',defStaImgUnsupport);
+                imgU2.attr('src',defStaImgUnsupport);
+
+                textS1.text(defStaTextSupport);
+                textS2.text(defStaTextSupport);
+                textU1.text(defStaTextUnsupport);
+                textU2.text(defStaTextUnsupport);
+
+                buttonS1.removeClass(actStaClassSupport);
+                buttonS1.removeClass(actStaClassUnsupport);
+                buttonS2.removeClass(actStaClassSupport);
+                buttonS2.removeClass(actStaClassUnsupport);                
+                buttonU1.removeClass(actStaClassSupport);
+                buttonU1.removeClass(actStaClassUnsupport);
+                buttonU2.removeClass(actStaClassSupport);
+                buttonU2.removeClass(actStaClassUnsupport);
+                
+                buttonS1.addClass(defStaClassSupport);
+                buttonS2.addClass(defStaClassSupport);    
+                buttonU1.addClass(defStaClassUnsupport);
+                buttonU2.addClass(defStaClassUnsupport);
+
+
+                if(sta > 0){
+                    // 支持
+                    imgS1.attr('src',actStaImgSupport);
+                    imgS2.attr('src',actStaImgSupport);
+
+                    textS1.text(actStaTextSupport);
+                    textS2.text(actStaTextSupport);
+
+                    buttonS1.removeClass(defStaClassSupport);
+                    buttonS2.removeClass(defStaClassSupport);    
+                    buttonS1.addClass(actStaClassSupport);
+                    buttonS2.addClass(actStaClassSupport); 
+                }else if(sta < 0){
+                    // 反对
+                    imgU1.attr('src',actStaImgUnsupport);
+                    imgU2.attr('src',actStaImgUnsupport);
+
+                    textU1.text(actStaTextUnsupport);
+                    textU2.text(actStaTextUnsupport);
+
+                    buttonU1.removeClass(defStaClassUnsupport);
+                    buttonU2.removeClass(defStaClassUnsupport);    
+                    buttonU1.addClass(actStaClassUnsupport);
+                    buttonU2.addClass(actStaClassUnsupport);  
+                }
+            }
+
+            function showAttitude(attitude){
+                $.post("<%= currentPath %>/blog/attitude",{
+                        state:attitude,
+                        blogId:"<%=session.getAttribute(SessionAttributeNameConfig.GET_BLOG_ID)%>"
+	                },
+	                function(data,status){
+                	console.log("数据: \n" + data + "\n状态: " + status);
+                	if(status == "success"){
+                		
+                		// 设置状态
+                		let msgType = 'info';
+                		if(data['code']!=undefined){
+                			if(data['code'] == 200){
+                				msgType = 'success';
+                			}else if(data['code'] == 500){
+                				msgType = 'warning';
+                			}
+                		}
+                		
+                		// 提示消息
+                		if(data['msg']!=undefined){
+            				Toast(data['msg'],2000,msgType);
+                		}
+                		
+                		
+                		if(data['data']!=undefined){
+                            // 判断是否需要跳转
+                			if(undefined != data['data']['url']){
+                				setTimeout(function(){
+                					location.href=data['data']['url'];
+                				},2000)
+                			}
+                            // 判断最终态度的状态
+                            if(undefined != data['data']['state']){
+                				let sta = parseInt(data['data']['state']);
+                                showState(sta);
+                			}
+                		}
+                	}
+                });
+            }
+        </script>
+        <script>
+            function heightToTop(ele) {
+                    //ele为指定跳转到该位置的DOM节点
+                    let bridge = ele;
+                    let root = document.body;
+                    let height = 0;
+                    do {
+                        height += bridge.offsetTop;
+                        bridge = bridge.offsetParent;
+                    } while (bridge !== root)
+
+                    return height;
+            }
+
+            window.scrollTo({
+                    top: heightToTop(document.querySelector("#p666")),
+                    behavior: 'smooth'
+                });
+
+            //按钮点击时
+            $("#p666").click(function () {
+                console.log("cccc");
+                window.scrollTo({
+                    top: heightToTop(document.querySelector("#h111")),
+                    behavior: 'smooth'
+                });
+            });
+        </script>
+	</body>
+</html>

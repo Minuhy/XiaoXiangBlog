@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+	<display-name>XiaoXiangBlog</display-name>
+	<welcome-file-list>
+	    <welcome-file>index.jsp</welcome-file>
+	    <welcome-file>index.html</welcome-file>
+	    <welcome-file>index.htm</welcome-file>
+	    <welcome-file>default.html</welcome-file>
+	    <welcome-file>default.htm</welcome-file>
+	    <welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/partial/error/404.jsp</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/partial/error/500.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/partial/error/500.jsp</location>
+	</error-page>
+
+	<servlet>
+		<servlet-name>UploadFileServlet</servlet-name>
+		<servlet-class>minuhy.xiaoxiang.blog.servlet.file.FileUploadServlet</servlet-class>
+		<!-- 是否是在Tomcat目录下 -->
+		<init-param>
+			<param-name>is-tom-path</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<!-- 文件上传的路径 -->
+		<init-param>
+			<param-name>file-upload-path</param-name>
+			<param-value>upload</param-value>
+		</init-param>
+		<!-- 文件缓存路径 -->
+		<init-param>
+			<param-name>cache-path</param-name>
+			<param-value>cache</param-value>
+		</init-param>
+		<!-- 最大文件大小（字节） -->
+		<init-param>
+			<param-name>max-file-size</param-name>
+			<param-value>10240000</param-value>
+		</init-param>
+		<!-- 最大内存缓存大小（字节） -->
+		<init-param>
+			<param-name>max-memory-size</param-name>
+			<param-value>5120000</param-value>
+		</init-param>
+		<!-- 是否只支持图片 -->
+		<init-param>
+			<param-name>only-picture</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadFileServlet</servlet-name>
+		<url-pattern>/file/up</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DownloadFileServlet</servlet-name>
+		<servlet-class>minuhy.xiaoxiang.blog.servlet.file.FileDownloadServlet</servlet-class>
+		<!-- 是否是在Tomcat目录下 -->
+		<init-param>
+			<param-name>is-tom-path</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<!-- 文件上传的路径 -->
+		<init-param>
+			<param-name>file-upload-path</param-name>
+			<param-value>upload</param-value>
+		</init-param>
+		<!-- 文件缓存路径 -->
+		<init-param>
+			<param-name>cache-path</param-name>
+			<param-value>cache</param-value>
+		</init-param>
+		<!-- 最大文件大小（字节） -->
+		<init-param>
+			<param-name>max-file-size</param-name>
+			<param-value>10240000</param-value>
+		</init-param>
+		<!-- 最大内存缓存大小（字节） -->
+		<init-param>
+			<param-name>max-memory-size</param-name>
+			<param-value>5120000</param-value>
+		</init-param>
+		<!-- 是否只支持图片 -->
+		<init-param>
+			<param-name>only-picture</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DownloadFileServlet</servlet-name>
+		<url-pattern>/file/down</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
