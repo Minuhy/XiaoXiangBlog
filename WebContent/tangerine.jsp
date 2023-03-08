@@ -113,8 +113,8 @@
 					<tr>
 						<td>SQL</td>
 						<td>1</td>
-						<td>10</td>
-						<td>27</td>
+						<td>9</td>
+						<td>26</td>
 						<td>78</td>
 					</tr>
 					<tr>
@@ -134,8 +134,8 @@
 					<tr>
 						<td>总计</td>
 						<td>138</td>
-						<td>2711</td>
-						<td>2574</td>
+						<td>2710</td>
+						<td>2573</td>
 						<td>16420</td>
 					</tr>
 					<tr>
