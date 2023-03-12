@@ -11,7 +11,7 @@
 .mtj.tmp/
 
 # lib file
-!WebContent/WEB-INF/lib/*
+\!WebContent/WEB-INF/lib/
 
 # Package Files #
 *.jar
