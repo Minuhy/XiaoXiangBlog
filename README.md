@@ -1,35 +1,46 @@
 # 潇湘博客 XiaoXiangBlog
 
 ## 说明
-一个Eclipse项目。
+一个Eclipse项目 - Version: 2020-06 (4.16.0)。
 
 ## 潇湘博客
-一个简单的Java Web项目，使用 JSP、Servlet、MySql、Bootstarp等技术实现。完成了发布博客、阅读博客、点赞、发布评论、个人资料更改、自适应电脑手机等功能。如果您喜欢，请点击星星，谢谢。
+
+一个简单的Java Web项目，使用 JSP、Servlet、MySQL、Bootstarp等技术实现。完成了发布博客、阅读博客、点赞、发布评论、个人资料更改、自适应电脑手机等功能。如果您喜欢，请点击星星，谢谢。
 
 ## XiaoXiangBlog
 
 A simple java web project, use JSP, Servlet, MySql, Bootstarp and others. Realized the function of publish blog, read blog, show like, publish comment, person profile change,adaptive desktop mobile and others.If you like this, please click the star, thanks.
 
 ## 图片（Show）
-![首页](image/README/image-20230308112559074.png)
+首页截图：
+
+![首页](images/README/image-20230308112559074.png)
+
+文章和评论截图：
 
 ---
 
-![阅读页面](image/README/image-20230308112335629.png)
+![阅读页面](images/README/image-20230308112335629.png)
+
+个人资料截图：
 
 ---
 
-![个人主页](image/README/image-20230308112359260.png)
+![个人主页](images/README/image-20230308112359260.png)
 
 ---
 
-![个人消息页面](image/README/image-20230308112506040.png)
+个人消息截图：
+
+![个人消息页面](images/README/image-20230308112506040.png)
 
 
 
 ## 项目其他说明（Other）
 
 ### 数据库（DataBase）
+
+***所有账号的密码都为 （The password of all accounts is ）`123456`！***
 
 数据库配置文件（SQL config file）：src/druid.properties
 
@@ -123,4 +134,8 @@ See the configuration file for log processing details.
 
 - summernote-v0.8.20 https://summernote.org/
 
-2023-03-08
+### 日志（Log）
+
+初次完成：2023-03-08
+
+实现：博客、评论、点赞、个人资料、基础管理
