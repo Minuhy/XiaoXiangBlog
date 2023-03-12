@@ -10,11 +10,7 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# lib file
-!WebContent/WEB-INF/lib/
-
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
