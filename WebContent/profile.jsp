@@ -131,7 +131,7 @@
                                 	out.write("<tr>");
                                 	for(int j=0;j<row;j++){
                                 		int imgId = i*6+j+1;
-                                		out.write(String.format("<td id='h%03d'><img src='%s/img/avatar/h%03d.png' alt='头像%03d'></td>",imgId, currentPath,imgId,imgId));
+                                		out.write(String.format("<td id='h%03d'><img  width='70'  height='70' src='%s/img/avatar/h%03d.png' alt='预选头像%03d'></td>",imgId, currentPath,imgId,imgId));
                                 	}
                                 	out.write("</tr>");
                                 }

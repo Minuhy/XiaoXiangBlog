@@ -9,7 +9,7 @@
  Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 08/03/2023 11:34:02
+ Date: 12/03/2023 21:48:55
 */
 
 SET NAMES utf8mb4;
@@ -48,7 +48,7 @@ CREATE TABLE `t_comment`  (
   `create_timestamp` bigint(20) UNSIGNED NOT NULL COMMENT '回复时间',
   `update_timestamp` bigint(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 159 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 160 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for t_like
@@ -62,7 +62,7 @@ CREATE TABLE `t_like`  (
   `create_timestamp` bigint(20) UNSIGNED NOT NULL COMMENT '点赞的时间',
   `update_timestamp` bigint(20) UNSIGNED NOT NULL DEFAULT 0 COMMENT '最后一次修改的时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 120 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 122 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for t_message
@@ -79,7 +79,7 @@ CREATE TABLE `t_message`  (
   `msg_type` tinyint(3) UNSIGNED NOT NULL COMMENT '消息类型：1回复，2提到，3点赞，4系统消息',
   `create_timestamp` bigint(20) UNSIGNED NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 381 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 382 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for t_user
