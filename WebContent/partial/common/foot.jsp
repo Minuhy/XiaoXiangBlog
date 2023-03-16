@@ -35,7 +35,7 @@
 				</span>
 		</p>
 		<a href="<%= currentPath %>/tangerine.jsp">
-			&copy; Minuhy v1.0.0
+			&copy; Minuhy v1.0.2
 		</a>
   	</div>
 </footer>

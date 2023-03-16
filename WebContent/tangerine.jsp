@@ -65,6 +65,7 @@
 			</div>
 			
 			<table border="1" style="width: 100%;text-align: center;margin: 0;">
+				<caption>代码统计 (v1.0.1)</caption>
 				<thead>
 					<tr>
 						<th>语言</th>
