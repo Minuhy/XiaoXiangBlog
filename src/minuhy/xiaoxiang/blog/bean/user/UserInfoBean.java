@@ -159,6 +159,20 @@ public class UserInfoBean  extends BeanTimeController {
 	public void setSignature(String signature) {
 		this.signature = signature;
 	}
+	
+	/**
+	 * 返回基于性别的第三人称代词
+	 * @return 第三人称代词
+	 */
+	public String getHeOrSheBySex() {
+		// 性别，0：未设置，1：男，2：女
+		if(getSex() == 1){
+        	return("他");
+        }else if(getSex() == 2){
+        	return("她");
+        }
+		return("他或者她");
+	}
 
 	public int getSex() {
 		return sex;

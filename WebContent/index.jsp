@@ -83,6 +83,10 @@
 		                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 		                    <br>
 		                    没有博文可以推荐
+		                    <br>
+		                    <br>
+		                    <!-- 没有博文 -->
+				            <a href="<%= currentPath %>/post.jsp" class="btn btn-primary">去发表博文</a>
 		                </p>
 						<%
 					}

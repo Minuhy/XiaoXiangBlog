@@ -167,7 +167,13 @@
 				                    没有博文
 				                    <br>
 				                    <br>
-				                    <a href="<%= currentPath %>/blog.jsp" class="btn btn-primary">回到第一页</a>
+				                    <% if(pageNumber <= 1){ %>
+				                    	<!-- 没有博文 -->
+				                    	<a href="<%= currentPath %>/post.jsp" class="btn btn-primary">去发表博文</a>
+				                    <%}else{ %>
+				                    	<!-- 到了一个没有博文的页码 -->
+				                    	<a href="<%= currentPath %>/blog.jsp" class="btn btn-primary">回到第一页</a>
+				                    <%} %>
 				                </p>
 								<%
 							}

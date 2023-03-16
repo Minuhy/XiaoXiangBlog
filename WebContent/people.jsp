@@ -73,9 +73,10 @@
         	<jsp:useBean id="userInfo" class="minuhy.xiaoxiang.blog.bean.user.UserInfoBean" ></jsp:useBean>
 	        <% if(peopleId>0 || !peopleAccount.equals("")){ 
 
+				// 个人资料页，显示资料，不管在第几页，都要获取用户信息，后面可能用上，特别是超过页面范围时
+				userInfo.getData(peopleId);
+				
 				if(pageNumber<=1){
-					// 个人资料页，显示资料
-					userInfo.getData(peopleId);
 				%>
 					<div class="row text-center" style="margin: 40px;">
 						<img src="<%= String.format(currentPath + "/img/avatar/h%03d.png", userInfo.getAvatar()) %>" alt="头像" width="200" height="200" class="img-thumbnail" />
@@ -125,7 +126,7 @@
 				<%}else{ 
 					String targetNick = userInfo.getUserNiceById(peopleId);
 				%>
-					<h1><%= targetNick %>的博文</h1>
+					<h1><%= user.getId()==userInfo.getId()?"我":targetNick %>的博文</h1>
 	            <%} %>
 	            <div>
 	                <jsp:useBean id="timeBlogsBean" class="minuhy.xiaoxiang.blog.bean.blog.TimeBlogsBean" scope="session"></jsp:useBean>
@@ -212,12 +213,27 @@
 								<p class="lead" style="color: orange;text-align: center;margin: 100px auto;font-size: 26px;">
 				                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 				                    <br>
-				                    没有博文
-				                    <br>
-				                    <br>
-				                    <% if(pageNumber != 1){ %>
-				                    <a href="<%= currentPath %>/people.jsp" class="btn btn-primary">回到我的主页</a>
-				                	<% } %>
+			         				<% if(pageNumber > 1){ // 页数超过了 %>
+			                    		此页没有博文
+					                    <br>
+					                    <br>
+					                    <% if(user!=null && user.getId()==userInfo.getId()){ // 自己的主页 %>
+			                    			<a href="<%= currentPath %>/people.jsp" class="btn btn-primary">回到我的主页</a>
+					                    <%}else{ %>
+					                    	<a href="<%= currentPath %>/people.jsp?i=<%= peopleId %>" class="btn btn-primary">回到<%=userInfo.getHeOrSheBySex()%>的主页</a>
+					                    <% } %>       
+				                	<% }else{ // 博文数量为 0 %>
+			                    		没有博文
+					                    <br>
+					                    <br>
+					                    <% if(user!=null && user.getId()==userInfo.getId()){ // 自己的主页 %>
+					                    	<a href="<%= currentPath %>/post.jsp" class="btn btn-primary">发表一篇博文</a>
+					                    <%}else{ %>
+					                    	<!-- TODO -->
+						                    <!-- 邀请用户发表一篇博文 -->
+						                    <span class="text-muted"> 赶紧让<%= userInfo.getHeOrSheBySex() %>来发表一篇吧 ~ </span>
+					                    <% } %>       
+				                	<% } %>       
 				                </p>
 								<%
 							}

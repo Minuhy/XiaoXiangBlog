@@ -125,10 +125,17 @@
 					<p class="lead" style="color: orange;text-align: center;margin: 100px auto;font-size: 26px;">
 				    	<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 				        <br>
-				                    没有博文
-				    	<br>
-				    	<br>
-				    	<a href="<%= currentPath %>/blog.jsp" class="btn btn-primary">回到博客</a>
+				        <%if(pageNumber>1){ %>
+					        此页没有结果
+					    	<br>
+					    	<br>
+					    	<a href="<%= currentPath %>/search.jsp?s=<%= searchKey %>" class="btn btn-primary">回到搜索结果首页</a>
+				        <%}else{ %>
+					        没有结果
+					    	<br>
+					    	<br>
+					    	<a href="<%= currentPath %>/index.jsp" class="btn btn-primary">回到博客主页</a>
+				        <%} %>
 					</p>
 				<%
 				}
