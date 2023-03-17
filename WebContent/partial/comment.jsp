@@ -114,7 +114,9 @@
 
 						{{? value.authorId == value.userId }} <!-- 判断当前阅读的用户是不是发评论的这个用户 -->
                             <button onclick="deleteComment({{=value.id}})" type="button" class="btn btn-default">删除</button>
-                        {{?}}<!-- 循环结束 -->
+                        {{?? value.blogAuthorId == value.userId}}  <!-- 相当于  elese if -->
+							<button onclick="deleteComment({{=value.id}})" type="button" class="btn btn-default">删除</button>
+						{{?}}   <!-- 相当于if的结束括号 -->
 						
 						<%}%>
 

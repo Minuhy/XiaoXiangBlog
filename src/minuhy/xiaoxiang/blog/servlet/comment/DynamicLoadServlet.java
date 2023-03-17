@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 import minuhy.xiaoxiang.blog.bean.user.UserBean;
 import minuhy.xiaoxiang.blog.config.DatabaseConfig;
 import minuhy.xiaoxiang.blog.config.DebugConfig;
+import minuhy.xiaoxiang.blog.database.BlogDb;
 import minuhy.xiaoxiang.blog.database.CommentDb;
 import minuhy.xiaoxiang.blog.database.UserDb;
 import minuhy.xiaoxiang.blog.entity.CommentEntity;
@@ -137,6 +138,16 @@ public class DynamicLoadServlet extends BaseHttpServlet{
 					blogId, 
 					pageNumber-1 // 数据库中页数是从0开始的，转换一下
 				); 
+			
+			// 查博客的作者
+			int blogAuthorId = 0;
+			try {
+				BlogDb blogDb = new BlogDb();
+				blogAuthorId = blogDb.getBlogAuthorIdByBlogId(blogIdStr);
+			}catch (Exception e) {
+				log.error("在评论处查询文章作者时出错："+e.getMessage());
+			}
+			
 			if(entitys!=null && entitys.length>0) {
 				// 返回数据，还有更多数据
 				if(pageNumber < totalPageNumber) {
@@ -149,6 +160,7 @@ public class DynamicLoadServlet extends BaseHttpServlet{
 					id:4, // 评论ID
 			        userId:20, // 阅读者的id，如果未登录为0
 			        authorId:21, // 发表者ID
+			        blogAuthorId:66, // 对应文章作者的ID
 			        authorNick:"清米子", // 发表者昵称
 			        baseUrl:'/XiaoXiangBlog', // 基础路径
 			        avatar:"h096", // 头像文件名（不含后缀）
@@ -193,6 +205,7 @@ public class DynamicLoadServlet extends BaseHttpServlet{
 						jsonObject.put("id",entity.getId()); // 评论ID
 						jsonObject.put("userId",userId); // 阅读者的id，如果未登录为0
 						jsonObject.put("authorId",entity.getUserId()); // 发表者ID
+						jsonObject.put("blogAuthorId",blogAuthorId); // 对应文章作者的ID
 						jsonObject.put("authorNick",userNick); // 发表者昵称
 						jsonObject.put("baseUrl",currentPath); // 基础路径
 						jsonObject.put("avatar",String.format("h%03d", userAvatar)); // 头像文件名（不含后缀）

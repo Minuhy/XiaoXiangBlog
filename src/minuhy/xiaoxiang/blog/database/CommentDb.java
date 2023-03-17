@@ -278,28 +278,38 @@ public class CommentDb extends Executant {
 	}
 
 	/**
-	 * 查询一个评论的作者和对应的博客
+	 * 查询评论的作者、对应的博客ID和对应博客的作者ID
 	 * @param commetId
 	 * @return 
 	 * @throws SQLException 
 	 */
-	public int[] getUserIdAndBlogIdByCommentId(int commetId) throws SQLException {
-		String sql = "SELECT `user_id`,`blog_id` " + 
-				"FROM `t_comment` " + 
-				"WHERE `id` = ?";
+	public int[] getCommentAuthorIdAndBlogIdAndBlogAuthorIdByCommentId(int commetId) throws SQLException {
+		String sql = "SELECT " + 
+				"	t_blog.author_id AS blog_author_id, " + 
+				"	t_comment.user_id AS comment_author_id, " + 
+				"	t_comment.blog_id AS blog_id " + 
+				"FROM " + 
+				"	t_blog " + 
+				"	INNER JOIN " + 
+				"	t_comment " + 
+				"	ON " + 
+				"		t_blog.id = t_comment.blog_id " + 
+				"WHERE " + 
+				"	t_comment.id = ? ";
 
 		if (DebugConfig.isDebug) {
-			log.debug("查询评论的作者：{} - {}", sql, commetId);
+			log.debug("查询评论的作者、对应的博客ID和对应博客的作者ID：{} - {}", sql, commetId);
 		}
 
-		int id[] = new int[2];
+		int id[] = new int[3];
 		try {
 			ResultSet resultSet = query(sql, 
 					String.valueOf(commetId)
 				);
 			if (resultSet.next()) {
-				id[0] = resultSet.getInt("user_id");
+				id[0] = resultSet.getInt("comment_author_id");
 				id[1] = resultSet.getInt("blog_id");
+				id[2] = resultSet.getInt("blog_author_id");
 			}
 		} finally {
 			close();

@@ -84,10 +84,14 @@ public class DeleteServlet extends BaseHttpServlet{
 		
 		try {
 			// 查询是否有权限
-			int[] id = commentDb.getUserIdAndBlogIdByCommentId(commetId);
-			int authorId = id[0];
+			int[] id = commentDb.getCommentAuthorIdAndBlogIdAndBlogAuthorIdByCommentId(commetId);
+			int CommentAuthorId = id[0];
 			int blogId = id[1];
-			if((authorId != userBean.getId()) && userBean.getRole()!=1) {
+			int BlogAuthorId = id[2];
+			if((CommentAuthorId != userBean.getId()) // 不是评论作者本人
+					&& userBean.getRole()!=1 // 不是管理员
+					&& BlogAuthorId != userBean.getId() // 不是文章作者
+					) {
 				String jsonStr = ResultUtil.fail("无权限").toString();
 				backJson(jsonStr,resp);
 				return;
