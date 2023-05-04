@@ -228,3 +228,7 @@ See the configuration file for log processing details.
 - respond.js-1.4.2 https://github.com/scottjehl/Respond
 
 - summernote-v0.8.20 https://summernote.org/
+
+## 开源地址
+
+1. GitHub：[https://github.com/Minuhy/XiaoXiangBlog](https://github.com/Minuhy/XiaoXiangBlog)

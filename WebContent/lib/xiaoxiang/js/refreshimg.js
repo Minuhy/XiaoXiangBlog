@@ -1,7 +1,7 @@
 ﻿var captchaPicRefresh = 0;
 var captchaPicSrc = '';
 $('#captchaImg').click(function(){
-	let captchaPic = $('#captchaImg')
+	var captchaPic = $('#captchaImg')
     // 动作触发后执行的代码!!
     console.log('更新验证码~');
     if (captchaPicRefresh === 0) {

@@ -7,7 +7,7 @@
 <html lang="zh-cmn-Hans-CN">
 	<head>
 		<jsp:include page="partial/common/head.jsp"></jsp:include>
-		<title>Minuhy</title>
+		<title>关于</title>
 		<% // 设置导航栏
 		/*
 		request.setAttribute(
@@ -140,7 +140,7 @@
 						<td>16420</td>
 					</tr>
 					<tr>
-						<td colspan="5"><a href="https://github.com/minuhy/XiaoXiangBlog">项目地址：https://github.com/minuhy/XiaoXiangBlog</a></td>
+						<td colspan="5"><a href="https://github.com/minuhy/XiaoXiangBlog">项目地址：https://github.com/Minuhy/XiaoXiangBlog</a></td>
 					</tr>
 				</tbody>
 			</table>

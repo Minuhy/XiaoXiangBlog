@@ -40,18 +40,19 @@ public class LoginServlet extends BaseHttpServlet {
 	 */
 	private static final long serialVersionUID = 4174368608567168240L;
 	private static final Logger log = LoggerFactory.getLogger(LoginServlet.class);
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.sendRedirect(req.getContextPath()+"/login.jsp");
+		resp.sendRedirect(req.getContextPath() + "/login.jsp");
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		currentPath = req.getContextPath();
-		
+
 		HttpSession session = req.getSession();
-		String loginUrl = TextUtil.isString(session.getAttribute(SessionAttributeNameConfig.LOGIN_PAGE), currentPath +"/login.jsp");
+		String loginUrl = TextUtil.isString(session.getAttribute(SessionAttributeNameConfig.LOGIN_PAGE),
+				currentPath + "/login.jsp");
 
 		// 1. 获取参数
 		String account = RequestUtil.getReqParam(req, "account", "");
@@ -59,17 +60,15 @@ public class LoginServlet extends BaseHttpServlet {
 		String captcha = RequestUtil.getReqParam(req, "captcha", "");
 		String rememberMe = req.getParameter("rememberMe");
 
-		
-
 		// 2. 检查参数格式是否正确
 		if (DebugConfig.isDebug) {
 			log.debug("参数：{} {} {} {}", account, passwd, captcha, rememberMe);
 		}
 		// 预处理
-        account = account.trim();
-        captcha = captcha.trim();
-        passwd = passwd.trim();
-        
+		account = account.trim();
+		captcha = captcha.trim();
+		passwd = passwd.trim();
+
 		session.setAttribute(SessionAttributeNameConfig.LOGIN_ACC, account);
 		session.setAttribute(SessionAttributeNameConfig.LOGIN_PWD, passwd);
 		session.setAttribute(SessionAttributeNameConfig.LOGIN_REME, rememberMe);
@@ -119,7 +118,7 @@ public class LoginServlet extends BaseHttpServlet {
 					log.debug("验证码不正确：{}", captcha);
 				}
 
-				forwardTipWarnPage("验证码不正确", "登录",loginUrl, req, resp);
+				forwardTipWarnPage("验证码不正确", "登录", loginUrl, req, resp);
 				return;
 			}
 		} else {
@@ -127,14 +126,13 @@ public class LoginServlet extends BaseHttpServlet {
 				log.debug("验证码没有被获取（在Session中找不到）");
 			}
 
-			forwardTipWarnPage("请先获取验证码", "登录",loginUrl, req, resp);
+			forwardTipWarnPage("请先获取验证码", "登录", loginUrl, req, resp);
 			return;
 		}
-		
+
 		// 获取IP
 		String ip = req.getRemoteAddr();
 		ip = TextUtil.maxLenJustify(ip, 32);
-		
 
 		UserDb userDb = new UserDb();
 
@@ -147,16 +145,15 @@ public class LoginServlet extends BaseHttpServlet {
 				String inpoutPwd = EncryptionUtil.EncodePasswd(account, passwd);
 				if (inpoutPwd.equals(userEntity.getPasswd())) {
 					// 登录成功
-					
+
 					session.removeAttribute(SessionAttributeNameConfig.LOGIN_ACC);
 					session.removeAttribute(SessionAttributeNameConfig.LOGIN_PWD);
 					session.removeAttribute(SessionAttributeNameConfig.LOGIN_REME);
-					
-					
+
 					int role = userEntity.getRole();
-					
-					UserBean userBean = new UserBean(userEntity.getId(), userEntity.getAccount(),role, userEntity.getNick(),
-							userEntity.getSignature(), userEntity.getAvatar());
+
+					UserBean userBean = new UserBean(userEntity.getId(), userEntity.getAccount(), role,
+							userEntity.getNick(), userEntity.getSignature(), userEntity.getAvatar());
 					userBean.setPasswd(userEntity.getPasswd());
 
 					// 把用户信息放到Session中
@@ -186,8 +183,8 @@ public class LoginServlet extends BaseHttpServlet {
 								}
 							}
 						}
-						
-						if(DebugConfig.isDebug) {
+
+						if (DebugConfig.isDebug) {
 							log.debug("cookie剩余时间：{}" + maxAge);
 						}
 
@@ -202,37 +199,35 @@ public class LoginServlet extends BaseHttpServlet {
 						resp.addCookie(cookie);
 
 					} else {
-						
+
 						// 删除Cookie 需要以相同的方式再下发一次，并且过期时间为0
 						Cookie cookie = new Cookie(CookieConfig.REMEMBER_ME_KEY_NAME, "null");
 						cookie.setPath(currentPath);
 						cookie.setMaxAge(0);
 						cookie.setComment("加密后的账号密码");
 						resp.addCookie(cookie);
-						
+
 						if (DebugConfig.isDebug) {
 							log.debug("已取消勾选记住我，Cookie已被删除");
 						}
 					}
-					
+
 					// 之前的页面
-					String prePage = TextUtil.isString(
-							session.getAttribute(SessionAttributeNameConfig.LOGIN_PRE_PAGE),
+					String prePage = TextUtil.isString(session.getAttribute(SessionAttributeNameConfig.LOGIN_PRE_PAGE),
 							currentPath + "/index.jsp");
-					String prePageName = TextUtil.isString(
-							session.getAttribute(SessionAttributeNameConfig.LOGIN_PRE_PAGE_NAME),
-							"首页");
-					
+					String prePageName = TextUtil
+							.isString(session.getAttribute(SessionAttributeNameConfig.LOGIN_PRE_PAGE_NAME), "首页");
+
 					session.removeAttribute(SessionAttributeNameConfig.LOGIN_PRE_PAGE);
 					session.removeAttribute(SessionAttributeNameConfig.LOGIN_PRE_PAGE_NAME);
 
 					// 注册的，也在这边删了
 					session.removeAttribute(SessionAttributeNameConfig.LOGIN_PAGE);
-					
+
 					// 更新最后登录时间
 					String welcome = "欢迎你 " + userBean.getNick();
-					if(role==1) {
-						welcome+="（管理员）";
+					if (role == 1) {
+						welcome += "（管理员）";
 					}
 					if (userDb.UpdateLoginTimeAndIp(userEntity.getId(), TimeUtil.getTimestampMs(), ip)) {
 
@@ -247,7 +242,7 @@ public class LoginServlet extends BaseHttpServlet {
 							log.debug("登录成功但登录时间更新失败：{}", account);
 						}
 
-						forwardTipWarnPage(welcome+"！", prePageName, prePage, req, resp);
+						forwardTipWarnPage(welcome + "！", prePageName, prePage, req, resp);
 						return;
 					}
 

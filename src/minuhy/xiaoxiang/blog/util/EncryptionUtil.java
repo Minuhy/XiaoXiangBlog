@@ -162,7 +162,7 @@ public class EncryptionUtil {
 			if (i % 3 == 1) {
 				bytes[i] = (byte) (pwdMd5.charAt(i % pwdMd5.length()) % 99);
 			} else {
-				bytes[i] = (byte) ((strMd5.charAt(i % pwdMd5.length()) % 99) * (i % 2 == 0 ? 1 : -1));
+				bytes[i] = (byte) ((strMd5.charAt(i % strMd5.length()) % 99) * (i % 2 == 0 ? 1 : -1));
 			}
 		}
 

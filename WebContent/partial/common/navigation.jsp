@@ -48,7 +48,7 @@ if(obj instanceof UserBean){
             <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="<%= currentPath %>/index.jsp">
-				<img alt="品牌图标"  style="margin-top: -3px;" src="<%= currentPath %>/img/icon.svg">
+				<img alt="潇湘博客"  style="margin-top: -3px;width: 24px;height: 24px;" src="<%= currentPath %>/img/favicon.ico">
 			</a>
             <a class="navbar-brand" href="<%= currentPath %>/index.jsp">潇湘博客</a>
         </div>
