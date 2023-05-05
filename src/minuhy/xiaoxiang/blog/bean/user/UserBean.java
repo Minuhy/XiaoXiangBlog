@@ -35,13 +35,14 @@ public class UserBean {
 	
 	public UserBean() {}
 	
-    public UserBean(int id, String account,int role, String nick, String signature, int avatar) {
+    public UserBean(int id, String account,int role, String nick, String signature, int avatar,HttpSession session) {
         this.id = id;
         this.account = account;
         this.nick = nick;
         this.signature = signature;
         this.avatar = avatar;
         this.role = role;
+        this.session = session;
     }
 	
     private void update() {
@@ -50,7 +51,9 @@ public class UserBean {
     		try {
 				if(this.passwd!=null) {
 					if(!this.passwd.equals(getData(String.valueOf(id)))) {
-						session.removeAttribute(SessionAttributeNameConfig.USER_INFO);
+						if(session!=null) {
+							session.removeAttribute(SessionAttributeNameConfig.USER_INFO);
+						}
 						if(DebugConfig.isDebug) {
 							log.debug("用户登录已过期");
 						}
@@ -60,18 +63,18 @@ public class UserBean {
 				if(DebugConfig.isDebug) {
 					log.error("重新获取数据时出错");
 				}
-				session.removeAttribute(SessionAttributeNameConfig.USER_INFO);
+				if(session!=null) {
+					session.removeAttribute(SessionAttributeNameConfig.USER_INFO);
+				}
 			}
     		lastUpdateTime = currentTime;
     	}
     }
     
 	public int getId() {
-		update();
 		return id;
 	}
 	public String getAccount() {
-		update();
 		return account;
 	}
 	public String getNick() {

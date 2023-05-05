@@ -208,7 +208,7 @@ nick:玉米子
 		// 存入数据库
 		UserDb userDb = new UserDb();
 		try {
-			if(userDb.UpdateProfile(entity)) {
+			if(userDb.updateProfile(entity)) {
 				// 写入成功
 				userBean.updateProfile(avatarId, nick, signature);
 				

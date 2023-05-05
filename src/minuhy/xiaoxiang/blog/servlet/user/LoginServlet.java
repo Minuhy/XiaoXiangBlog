@@ -153,7 +153,7 @@ public class LoginServlet extends BaseHttpServlet {
 					int role = userEntity.getRole();
 
 					UserBean userBean = new UserBean(userEntity.getId(), userEntity.getAccount(), role,
-							userEntity.getNick(), userEntity.getSignature(), userEntity.getAvatar());
+							userEntity.getNick(), userEntity.getSignature(), userEntity.getAvatar(),session);
 					userBean.setPasswd(userEntity.getPasswd());
 
 					// 把用户信息放到Session中
@@ -229,7 +229,7 @@ public class LoginServlet extends BaseHttpServlet {
 					if (role == 1) {
 						welcome += "（管理员）";
 					}
-					if (userDb.UpdateLoginTimeAndIp(userEntity.getId(), TimeUtil.getTimestampMs(), ip)) {
+					if (userDb.updateLoginTimeAndIp(userEntity.getId(), TimeUtil.getTimestampMs(), ip)) {
 
 						if (DebugConfig.isDebug) {
 							log.debug("登录成功：{}", account);

@@ -15,6 +15,7 @@ import minuhy.xiaoxiang.blog.database.UserDb;
 import minuhy.xiaoxiang.blog.servlet.BaseHttpServlet;
 import minuhy.xiaoxiang.blog.util.EncryptionUtil;
 import minuhy.xiaoxiang.blog.util.RequestUtil;
+import minuhy.xiaoxiang.blog.util.TimeUtil;
 import minuhy.xiaoxiang.blog.util.UrlGeneratorUtil;
 
 /**
@@ -106,8 +107,11 @@ public class PasswdServlet extends BaseHttpServlet{
 		UserDb userDb = new UserDb();
 		// 存入数据库
 		try {
-			if(userDb.UpdatePasswd(userBean.getId(), rawPwd, newPwd)) {
+			if(userDb.updatePasswd(userBean.getId(), rawPwd, newPwd)) {
+				// 更新缓存
 				userBean.setPasswd(newPwd);
+				// 更新时间戳
+				userDb.updateUpdateTimestamp(userBean.getId(), TimeUtil.getTimestampMs());
 				// 写入成功
 				forwardTipOkPage("修改成功", "修改密码", currentPath + "/passwd.jsp", req, resp);
 				return;

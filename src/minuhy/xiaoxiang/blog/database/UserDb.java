@@ -329,7 +329,7 @@ public class UserDb extends Executant {
 	 * @return 成功/否
 	 * @throws SQLException
 	 */
-	public boolean UpdateLoginTimeAndIp(int id, long currentTime,String ip) throws SQLException {
+	public boolean updateLoginTimeAndIp(int id, long currentTime,String ip) throws SQLException {
 		String sql = "UPDATE `t_user` "
 				+ "SET `last_login_timestamp` = ?,`last_login_ip` = ? "
 				+ "WHERE `id` = ?";
@@ -361,7 +361,7 @@ public class UserDb extends Executant {
 	 * @return
 	 * @throws SQLException
 	 */
-	public boolean UpdateProfile(UserEntity entity) throws SQLException {
+	public boolean updateProfile(UserEntity entity) throws SQLException {
 		String sql = "UPDATE `t_user` " + 
 				"SET `nick` = ?, `signature` = ?, `sex` = ?, `hometown` = ?, `link` = ?, `avatar` = ?,`update_timestamp`=? " + 
 				"WHERE `id` = ?";
@@ -399,7 +399,7 @@ public class UserDb extends Executant {
 	 * @return true，成功，false，原密码不正确
 	 * @throws SQLException
 	 */
-	public boolean UpdatePasswd(int userId,String rawPwd,String newPwd) throws SQLException {
+	public boolean updatePasswd(int userId,String rawPwd,String newPwd) throws SQLException {
 		String sql = "UPDATE `t_user` " + 
 				"SET `passwd` = IF(`passwd`= ? ,?,`passwd`) " + 
 				"WHERE `id`= ?";
@@ -457,5 +457,38 @@ public class UserDb extends Executant {
 			close();
 		}
 		return account;
+	}
+	
+	/**
+	 * 更新登录时间
+	 * 
+	 * @param id          用户ID
+	 * @param currentTime 时间戳
+	 * @return 成功/否
+	 * @throws SQLException
+	 */
+	public boolean updateUpdateTimestamp(int id, long currentTime) throws SQLException {
+		String sql = "UPDATE `t_user` "
+				+ "SET `update_timestamp` = ? "
+				+ "WHERE `id` = ?";
+
+		if (DebugConfig.isDebug) {
+			log.debug("更新登錄時間：{} - {}，{}", sql, id, currentTime);
+		}
+
+		int result = 0;
+		try {
+			result = update(sql, 
+					String.valueOf(currentTime), 
+					String.valueOf(id)
+				);
+
+			if (DebugConfig.isDebug) {
+				log.debug("更新数据：{}", result);
+			}
+		} finally {
+			close();
+		}
+		return result > 0;
 	}
 }
